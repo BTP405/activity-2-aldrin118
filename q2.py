@@ -22,16 +22,17 @@ def graphSnowfall(t):
             graphData[3]+=1
         elif(num >40 and num <=50):
             graphData[4]+=1
+    results = ['0-10', '11-20', '21-30', '31-40','41-51']
+    bar_labels = ['red', 'blue', '_red', 'orange','_blue']
+    bar_colors = ['tab:red', 'tab:blue', 'tab:red', 'tab:blue','tab:red']
 
-    fig, ax = plt.subplots()
-    ax.plot(graphData, yaxis)
-    ax.set(xlabel='Level', ylabel='Number', title='Snow Levels')
-    ax.grid()
-    fig.savefig("test.png")
+    ax.bar(results, graphData, label=bar_labels, color=bar_colors)
+
+    ax.set_ylabel('Number')
+    ax.set_title('Snow Levels')
+    ax.legend(title='Snow Levels')
+
     plt.show()
-
-    print(graphData)
-    
 
 
 graphSnowfall("file.txt")
